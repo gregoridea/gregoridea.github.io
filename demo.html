@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>RAG Legal Analyzer</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="app.js"></script>
+</head>
+<body>
+
+    <div class="wrapper">
+        <main class="main-container">
+            
+            <section class="top-section">
+                <h2>RAG Search</h2>
+                <textarea id="queryInput" placeholder="Wpisz pytanie do dokumentów..."></textarea>
+    <div class="button-row">
+        <button class="btn-send">SEND</button>
+        <button class="btn-clean">CLEAN</button>
+        <button class="btn-load">LOAD</button>
+    </div>
+                    
+                <details class="accordion">
+                    <summary>Meta Dane (Filtry)</summary>
+    <div class="filter-grid">
+        <select id="filter-collection"><option value="">Wybierz Kolekcję</option></select>
+        <select id="filter-jurabk"><option value="">Wybierz JuraBK</option></select>
+        <select id="expert-select"><option value="default">Wybierz Eksperta</option></select>
+        
+        <input type="date" id="filter-date-from">
+        <input type="date" id="filter-date-to">
+    </div>
+                </details>
+            </section>
+
+            <hr class="divider">
+
+            <section class="bottom-section">
+                <h2>Wektoryzacja i Upload</h2>
+                <div class="upload-container">
+                    <input type="file" id="fileUpload">
+                    <textarea placeholder="Dodatkowy opis/tekst do wektoryzacji..."></textarea>
+                </div>
+                
+                <details class="accordion">
+                    <summary>Meta Dane (Upload)</summary>
+                    <div class="filter-grid">
+                        <input type="text" placeholder="Kategoria">
+                        <input type="text" placeholder="Autor">
+                        <input type="text" placeholder="JuraBK">
+                        <input type="text" placeholder="ID Dokumentu">
+                    </div>
+                </details>
+                <button class="btn-upload">WCZYTAJ PLIK</button>
+            </section>
+        </main>
+
+        <div id="resizer" class="resizer"></div>
+
+<aside id="sidebar" class="sidebar" contenteditable="true">
+    <div class="sidebar-header">
+        <h3>Panel Roboczy</h3>
+        <span id="tokenCounter">Tokeny: 0</span>
+    </div>
+    <div id="scratchpadContent" class="scratchpad-area">
+        <!-- Tu już możesz pisać -->
+    </div>
+    <button class="btn-final">GENERUJ RAPORT KOŃCOWY</button>
+</aside>
+    </div>
+
+<div id="resultModal" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        
+        <div id="modalBody"></div>
+        
+        <div class="modal-buttons" style="margin-top: 20px; display: flex; gap: 10px;">
+            <button id="addToSidebar">Dodaj do Panelu Roboczego</button>
+            <button id="saveToFile" class="btn-save">Zapisz jako Plik</button>
+        </div>
+    </div>
+</div>
+
+
+</body>
+</html>
