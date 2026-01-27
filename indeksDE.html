@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RAG Legal Analyzer - GregorIdea Dark</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="wrapper">
+        <main class="main-container">
+            <section class="top-section">
+                <h2 style="color: var(--accent);">GregorIdea RAG System</h2>
+                <textarea id="queryInput" placeholder="Geben Sie hier Ihren rechtlichen Suchbegriff ein..."></textarea>
+                
+                <div class="button-row">
+                    <button class="btn-send">SENDEN (RAG)</button>
+                    <button class="btn-direct">DIREKT</button>
+                    <button class="btn-clean">LÖSCHEN</button>
+                    <button class="btn-load">LADEN</button>
+                    <button class="btn-anonymize">ANONYMISIEREN</button>
+                </div>
+
+                <details class="accordion">
+                    <summary>Metadaten und Filter (JuraBK / Datum)</summary>
+                    <div class="filter-grid">
+                        <select id="filter-collection">
+                            <option value="" disabled selected>Sammlung</option>
+                            <option value="kolekcja1">Sammlung 1</option>
+                            <option value="kolekcja2">Sammlung 2</option>
+                            <option value="temporal">Temporal</option>
+                        </select>
+                        <select id="filter-jurabk">
+                            <option value="" disabled selected>JuraBK</option>
+                            <option value="jura1">JuraBK Süd</option>
+                            <option value="jura2">JuraBK Nord</option>
+                            <option value="jura3">JuraBK Zentral</option>
+                        </select>
+                        <select id="expert-select">
+                            <option value="" disabled selected>Experte</option>
+                            <option value="karne">Strafrecht</option>
+                            <option value="podatkowe">Steuerrecht</option>
+                            <option value="anonimizacja">Anonymisierung</option>
+                        </select>
+                        <div class="date-range">
+                            <input type="date" id="dateFrom" title="Datum von">
+                            <input type="date" id="dateTo" title="Datum bis">
+                        </div>
+                    </div>
+                </details>
+            </section>
+
+            <hr class="divider">
+
+            <section class="bottom-section">
+                <h3>Vektorisierung und Upload</h3>
+                <div class="upload-container">
+                    <input type="file" id="fileUpload">
+                    <textarea id="manualText" placeholder="Zusätzliche Beschreibung des Dokuments für die Datenbank..."></textarea>
+                </div>
+                <button class="btn-upload">IN DIE DATENBANK LADEN</button>
+            </section>
+        </main>
+
+        <aside id="sidebar" class="sidebar">
+            <div class="sidebar-header">
+                <h3>Arbeitsbereich</h3>
+                <span id="tokenCounter">Tokens: 0</span>
+            </div>
+            <div id="scratchpadContent" class="scratchpad-area" contenteditable="true"></div>
+            <button class="btn-final">BERICHT GENERIEREN</button>
+        </aside>
+    </div>
+
+    <div id="resultModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header"><span class="close">&times;</span></div>
+            <div id="modalBody" class="modal-scroll-area"></div>
+            <div class="modal-footer">
+                <button id="clearModal" class="btn-clean">LÖSCHEN</button>
+                <button id="addToSidebar" class="btn-upload">ZUM ARBEITSBEREICH HINZUFÜGEN</button>
+                <button id="saveToFile" class="btn-send">ALS .TXT SPEICHERN</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="anonymizeInfoModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header"><span class="close close-anonymize">&times;</span></div>
+            <div class="modal-scroll-area">
+                <h3>Informationen zur Anonymisierung</h3>
+                <p>Die Anonymisierungsfunktion entfernt sensible Daten aus Dokumenten...</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
