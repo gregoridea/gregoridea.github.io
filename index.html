@@ -1,465 +1,90 @@
-
-```html
-<!DOCTYPE HTML>
-<html lang="pl">
+<!DOCTYPE html>
+<html lang="de">
 <head>
     <meta charset="UTF-8">
+    <title>Gregor Idea — RAG_AI Systems</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gregor Idea - RAG & Bezpieczne Szyfrowanie</title>
+
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
-            background-color: #404040;
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #000;
             color: #fff;
         }
-        a { color: #4a90e2; text-decoration: none; }
-        a:hover { text-decoration: underline; }
+
         header {
-            background-color: #1a1a1a;
-            color: #fff;
-            padding: 15px 30px;
-            position: fixed;
-            top: 0; left: 0; width: 100%; z-index: 1000;
-            display: flex; justify-content: space-between; align-items: center;
-            border-bottom: 1px solid #333;
-        }
-        .logo { font-size: 1.5em; font-weight: bold; color: #fff; }
-        .contact-info { text-align: right; font-size: 0.9em; }
-        .main-content {
-            max-width: 1200px;
-            margin: 100px auto 40px;
-            padding: 0 20px;
-        }
-        h1, h2, h3, h4 { color: #4caf50 !important; }
-        p { margin-bottom: 20px; color: #e0e0e0; }
-        
-        .welcome-section, .rag-section, .articles-section, #contact {
-            background: #212121;
-            margin-bottom: 48px;
-            border-radius: 8px;
-            padding: 32px;
-        }
-        
-        .article {
-            margin-bottom: 32px;
-            padding-bottom: 0;
-            border-bottom: none;
-            background: transparent;
-            box-shadow: none;
-        }
-        .article h3 { color: #4caf50 !important; }
-        .hidden-content {
-            display: none;
-            margin-top: 15px;
-            padding-top: 15px;
-        }
-        .read-more {
-            display: inline-block;
-            background-color: #333;
-            color: #fff;
-            padding: 8px 16px;
-            border-radius: 4px;
-            margin-top: 15px;
-            cursor: pointer;
-            border: none;
-            transition: background-color 0.3s;
-        }
-        .read-more:hover { background-color: #4a90e2; text-decoration: none; }
-        
-        .form-group { margin-bottom: 20px; }
-        label { display: block; margin-bottom: 5px; color: #e0e0e0; }
-        input[type="text"], input[type="email"], textarea {
-            width: 100%; padding: 10px; border: 1px solid #444;
-            border-radius: 4px; background-color: #333; color: #fff;
-        }
-        textarea { min-height: 150px; resize: vertical; }
-        .btn { display: inline-block; background-color: #4a90e2; color: #fff;
-            padding: 10px 20px; border: none; border-radius: 4px; cursor: pointer; margin-right: 10px; }
-        .btn-primary { background-color: #4a90e2; }
-        .btn-secondary { background-color: #666; }
-        
-        footer {
-            background-color: #1a1a1a;
-            color: #999;
-            padding: 30px 0;
-            border-top: 1px solid #333;
-        }
-        .footer-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
             display: flex;
-            flex-wrap: wrap;
             justify-content: space-between;
+            align-items: center;
+            padding: 20px 40px;
+            border-bottom: 1px solid #222;
         }
-        .footer-info { margin-bottom: 20px; flex: 1 0 250px; }
-        .footer-info h4 { color: #fff; margin-bottom: 15px; }
-        .footer-bottom {
-            text-align: center;
-            padding-top: 20px;
-            margin-top: 20px;
-            border-top: 1px solid #333;
-            width: 100%;
+
+        .logo {
+            font-size: 18px;
+            font-weight: bold;
         }
-        @media (max-width: 768px) {
-            header { flex-direction: column; align-items: flex-start; }
-            .contact-info { margin-top: 10px; text-align: left; }
-            .footer-info { flex: 1 0 100%; }
+
+        .top-right a {
+            color: #fff;
+            text-decoration: none;
+            margin-left: 20px;
+            font-size: 14px;
+        }
+
+        .top-right a:hover {
+            text-decoration: underline;
+        }
+
+        main {
+            max-width: 900px;
+            padding: 80px 40px;
+        }
+
+        h1 {
+            font-size: 36px;
+            font-weight: normal;
+            margin-bottom: 40px;
+        }
+
+        p {
+            font-size: 18px;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        footer {
+            border-top: 1px solid #222;
+            padding: 20px 40px;
+            font-size: 12px;
+            color: #aaa;
         }
     </style>
 </head>
+
 <body>
+
 <header>
-    <div class="logo">GregorIdea</div>
-    <div class="lang-switch" style="margin-top: 5px;">
-        <a href="index.html">🇬🇧 English</a> | 
-        <a href="index-pl.html">🇵🇱 Polski</a> | 
-        <a href="index-de.html">🇩🇪 Deutsch</a> | 
-        <a href="index-es.html">🇪🇸 Español</a>
+    <div class="logo">
+        <!-- Dein Logo hier -->
+        Gregor Idea
     </div>
-    <div class="contact-info">
-             WhatsApp +49 177 477 80 65 | 
-        <a href="mailto:kontakt.gregoridea@gmail.com">kontakt.gregoridea@gmail.com</a>
+
+    <div class="top-right">
+        <a href="mailto:contact@gregoridea.com">contact@gregoridea.com</a>
+        <a href="demo.html">Demo</a>
     </div>
 </header>
 
-<div class="main-content">
+<main>
+<p>Sehr geehrte Damen und Herren,</p> <p>Wir sind spezialisiert auf intelligente, KI-basierte Wissensmanagementsysteme mit RAG-Architektur. Laden Sie unsere Wissensdatei herunter und fragen Sie eine beliebige KI (ChatGPT, Claude, Gemini) zu allem, was Sie interessiert: wie RAG funktioniert, was RAG überhaupt ist, sowie zu Vektoren, Embeddings, Chunking und der Vermeidung von KI-Halluzinationen. In der Datei finden Sie viele detaillierte Antworten plus die vollständige Dokumentation der GregorIdea RAG-Lösung. Dies gibt Ihnen die volle Kontrolle – wo und wann Ihnen eine Idee in den Sinn kommt (beim Kaffee, auf der Bank, in der Warteschlange) können Sie jederzeit eine Frage stellen, z.B. warum erst jetzt RAG und lokale KI implementierbar sind.</p> <p>RAG ist keine Optimierung – es ist eine Revolution der Zeit: Die Suche in tausenden Seiten dauert Sekunden statt Stunden, das ist buchstäblich eine Beschleunigung um tausende Prozent.</p> <p>Die <a href="demo.html">Demo</a> hat keine Verbindung zu einer KI, beantwortet Fragen aber dennoch auf interessante Weise.</p>
+</main>
 
-    <!-- Sekcja powitalna -->
-    <section class="welcome-section">
-        <h1>Witam w GregorIdea!</h1>
-        <p>Jestem niezły w poszukiwaniu pomysłów, tworzeniu rozwiązań i właściwie w niczym więcej, no może poza krytycznym myśleniem😉</p>
-        <h2>Problem haseł !</h2>
-        <p>Zapominanie haseł dotyka 80% ludzi na świecie i jest największą barierą w adopcji bezpiecznego szyfrowania.</p>
-        <p>Kancelarie prawne (tylko 20% szyfruje dane), laboratoria badawcze, startupy i firmy technologiczne mają wrażliwe dane, ale albo w ogóle nie szyfrują, albo szyfrują wszystko jednym blokiem – co oznacza "albo dajesz dostęp do wszystkiego, albo do niczego".</p>
-        <p>Potrzebują współpracy z firmami trzecimi na wycinku projektów, ale nie mogą selektywnie chronić tylko części swojej pracy – to horror dla każdego, kto chce współpracować nie ujawniając całej strategii.</p>
-        <section>
-            <h2>Dlaczego hasła zawodzą?</h2>
-            <p>Miliardy ludzi używają prostych haseł jak „123456" lub swoje imię – nie dlatego, że są głupi, ale dlatego, że mają ludzką pamięć.</p>
-            <p>Nawet administrator z 15-letnim stażem ma problem, gdzie i jak bezpiecznie ukryć hasło. Hasła to cyfrowy koszmar – nawet najsilniejsze szyfry padają, bo nikt nie zapamięta skomplikowanego ciągu znaków bez zapisywania go gdzieś na kartce czy w pliku.</p>
-            <p>Ten ludzki limit sprawia, że hasła często stają się otwartą furtką dla hakerów.</p>
-        </section>
-        <p>Papier przyjmie wszystko – prezentacje, liczby, obietnice. Każdy może napisać co chce, ale działająca aplikacja to konkret, który każdy może sprawdzić sam. pobierz aplikacje.</p>
-        <p><b>Ps.</b> Ta App nie ma dostępu do internetu, nie zbiera żadnych danych, nie wymaga rejestracji, nie wymaga nawet adresu email.</p>
-    </section>
-
-    <!-- NOWA SEKCJA RAG -->
-    <section class="rag-section">
-        <h1>Pamięć Absolutna - AI które rozumie Twoją firmę</h1>
-        <p>ChatGPT i Claude odpowiadają na wszystko, ale nic nie pamiętają o Tobie. RAG to coś zupełnie innego - to sztuczna inteligencja z fotograficzną pamięcią Twojej firmy.</p>
-        
-        <h2>Czym jest RAG?</h2>
-        <p>RAG (Retrieval-Augmented Generation) to Ai, która działa inaczej. Zamiast wymyślać, przeszukuje  dokumenty zapisane w wektorowej bazie wiedzy. Dopiero gdy znajdzie konkretną informację, odpowiada. Jeśli nie ma danych? Nie ma odpowiedzi. Zero halucynacji, zero upiększania.
-           Efekt? System który działa na Twoich danych, odpowiada w sekundach i któremu możesz zaufać. Bo wie kiedy czegoś nie wie.</p>
-        <p><strong>To nie jest zwykły chatbot.</strong> To system, który uczy czyta i analizuje, nie wymyśla, nie halucynuje.</p>
-        <p><a href="demo.html">Demo RAG</a></p>
-
-        <div style="margin: 30px 0; text-align: center;">
-            <a href="demo.html" class="btn btn-primary" style="background-color: #4caf50; padding: 15px 30px; font-size: 1.2em; font-weight: bold; text-decoration: none; border-radius: 8px; display: inline-block;">
-                🚀 URUCHOM DEMO INTERAKTYWNE
-            </a>
-            <p style="font-size: 0.8em; margin-top: 10px; color: #aaa;">Kliknij, aby przetestować interfejs wyszukiwania wektorowego</p>
-        </div>
-
-        <p><strong>To nie jest zwykły chatbot.</strong> To system, który uczy się, czyta i analizuje – nie wymyśla, nie halucynuje.</p>
-
-        <!-- ARTYKUŁY O RAG -->
-        <div class="article">
-            <h3>Co robi RAG w praktyce?</h3>
-            <div class="hidden-content">
-                <p><strong>Przykład dla kancelarii prawnej:</strong></p>
-                <p>Przychodzi klient z problemem: "Moja żona patrzy za przyjaźnie na sąsiada, chcę rozwodu."</p>
-                <p><strong>Bez RAG:</strong> Szukasz 2-3 godziny w bazach, czytasz wyroki, piszesz pozew.</p>
-                <p><strong>Z RAG:</strong> Pytasz system "Jakie są precedensy dla rozwodu z powodu nieodpowiednich relacji z osobami trzecimi?" - system w 10 sekund przeszukuje wszystkie Twoje dokumenty, wszystkie wyroki które kiedykolwiek analizowałeś i podaje konkretne odpowiedzi z cytatami.</p>
-                <p>Pozew pisze się w 10 minut zamiast 3 godzin.</p>
-            </div>
-            <button class="read-more">Czytaj dalej</button>
-        </div>
-
-        <div class="article">
-            <h3>Technologia 100% Europa</h3>
-            <div class="hidden-content">
-                <p><strong>Sentence Transformers</strong> - TU Darmstadt, Niemcy<br>
-                Najbardziej precyzyjny system rozumienia języka na świecie. Rozumie kontekst, nie tylko słowa.</p>
-                
-                <p><strong>Qdrant Vector Database</strong> - Berlin, Niemcy<br>
-                Najszybsza baza wektorowa świata. Przeszukuje miliony dokumentów w milisekundach.</p>
-                
-                <p><strong>BabyDragon Hatchling</strong> - Polska<br>
-                Model AI który się uczy sam. Nie przestaje się szkolić - każdy dokument, każde pytanie czyni go mądrzejszym.</p>
-                
-                <p><strong>Apertus LLM</strong> - EPFL Lausanne, Szwajcaria<br>
-                Specjalnie stworzony dla języka prawniczego. Rozumie paragrapfy, artykuły, kontekst prawny.</p>
-                
-                <p><strong>NVIDIA DGX Spark</strong><br>
-                1 Petaflop mocy obliczeniowej. To tyle, co 1000 zwykłych komputerów w jednym małym urządzeniu.</p>
-                
-                <p><strong>Żadnych danych w USA. Żadnej chmury. Wszystko u Ciebie.</strong></p>
-            </div>
-            <button class="read-more">Czytaj dalej</button>
-        </div>
-
-        <div class="article">
-            <h3>Bezpieczeństwo Military-Grade</h3>
-            <div class="hidden-content">
-                <p><strong>AES-256-GCM</strong> - Szyfrowanie używane przez NATO i NSA. Każdy dokument zaszyfrowany osobno.</p>
-                
-                <p><strong>Argon2id</strong> - Najnowocześniejszy algorytm hashowania haseł. Klucze generowane na bieżąco, nigdy nie zapisywane.</p>
-                
-                <p><strong>Air-Gapped Server</strong> - Serwer bez dostępu do internetu. Nie można go zhakować z zewnątrz, bo nie ma jak się do niego dostać.</p>
-                
-                <p><strong>VPN-Only Access</strong> - Tylko autoryzowane urządzenia. Whitelist adresów MAC i IP.</p>
-                
-                <p>Twoje dokumenty są bezpieczniejsze niż w banku. Rosyjskie boty mogą atakować cały dzień - one nie mają jak się dostać do systemu, który nie jest w internecie.</p>
-            </div>
-            <button class="read-more">Czytaj dalej</button>
-        </div>
-
-        <div class="article">
-            <h3>Jak działa Qdrant?</h3>
-            <div class="hidden-content">
-                <p>Qdrant nie zapisuje dokumentów jak zwykła baza danych. Zamiast tego zamienia każde zdanie na "wektor" - matematyczną reprezentację znaczenia.</p>
-                
-                <p>Gdy pytasz "Jakie są ograniczenia prędkości w mieście?", system nie szuka słowa "prędkość". On szuka znaczenia. Znajdzie "Art. 20 - maksymalna dopuszczalna szybkość jazdy w obszarze zabudowanym" - bo rozumie, że to dokładnie to samo.</p>
-                
-                <p>To jak Google, ale zamiast szukać w internecie, szuka w Twoich dokumentach. I jest 1000 razy precyzyjniejszy.</p>
-            </div>
-            <button class="read-more">Czytaj dalej</button>
-        </div>
-
-        <div class="article">
-            <h3>Czym jest BabyDragon Hatchling?</h3>
-            <div class="hidden-content">
-                <p>Większość AI się nie uczy. ChatGPT dziś jest taki sam jak miesiąc temu. BabyDragon to co innego.</p>
-                
-                <p><strong>On się uczy non-stop.</strong></p>
-                
-                <p>Każdy dokument który wrzucasz → analizuje.<br>
-                Każde pytanie które zadajesz → zapisuje.<br>
-                Każda odpowiedź którą dostajesz → trenuje się na niej.</p>
-                
-                <p>Po 200 sprawach w Twojej kancelarii, Dragon zna Twoje precedensy lepiej niż junior prawnik z 5-letnim stażem.</p>
-                
-                <p>Po 500 sprawach, Dragon pisze pozwy lepiej niż większość ludzi.</p>
-                
-                <p>I robi to w 30 sekund.</p>
-            </div>
-            <button class="read-more">Czytaj dalej</button>
-        </div>
-
-        <div class="article">
-            <h3>Dlaczego teraz?</h3>
-            <div class="hidden-content">
-                <p><strong>Rosyjskie ataki cybernetyczne</strong> - Bundestag mówi o kryzysie. Niemcy są atakowani codziennie. Twoje dane w chmurze to cel numer 1.</p>
-                
-                <p><strong>Cloud Act (USA)</strong> - Twoje dane w AWS, Google, Azure? Amerykański rząd może je przeczytać bez Twojej zgody. To nie teoria - to prawo.</p>
-                
-                <p><strong>GDPR</strong> - Kary do 20 milionów euro. Jeśli Twoje dane wyciekną, zapłacisz. I to dużo.</p>
-                
-                <p><strong>Konkurencja śpi</strong> - Większość kancelarii w Niemczech wciąż używa Worda i Excela. Kto teraz zainwestuje w AI, wygra rynek.</p>
-            </div>
-            <button class="read-more">Czytaj dalej</button>
-        </div>
-
-        <div class="article">
-            <h3>Ile to kosztuje?</h3>
-            <div class="hidden-content">
-                <p><strong>Cena: €50,000 (jednorazowo, bez abonamentu)</strong></p>
-                
-                <p><strong>Digital Bonus Plus (Niemcy):</strong> -€25,000 (50% zwrotu)<br>
-                <strong>Odliczenie VAT:</strong> -€7,600<br>
-                <strong>Odliczenie podatkowe (AfA):</strong> -€8,000</p>
-                
-                <p><strong>= Płacisz realnie €9,400</strong></p>
-                
-                <p><strong>Co dostajesz:</strong></p>
-                <ul style="margin-left: 20px; color: #e0e0e0;">
-                    <li>NVIDIA DGX Spark (€4,000 wartość)</li>
-                    <li>Pełna instalacja u Ciebie</li>
-                    <li>Wektoryzacja pierwszych 1000 dokumentów</li>
-                    <li>Training na Twoich sprawach (automatyczny)</li>
-                    <li>12 miesięcy support</li>
-                    <li>Wszystkie aktualizacje</li>
-                </ul>
-                
-                <p><strong>Żadnego abonamentu. Żadnej chmury. Płacisz raz.</strong></p>
-            </div>
-            <button class="read-more">Czytaj dalej</button>
-        </div>
-
-        <div class="article">
-            <h3>Chcesz zobaczyć na żywo?</h3>
-            <div class="hidden-content">
-                <p>Nie wierzysz w slajdy i prezentacje? Ja też nie.</p>
-                
-                <p><strong>Umów się na live demo:</strong></p>
-                <p>1. Przygotuj pendrive z 50-100 dokumentów (anonimizowanych)<br>
-                2. Ja przyjadę z laptopem<br>
-                3. Wrzucamy Twoje dokumenty do systemu (5 minut)<br>
-                4. Ty zadajesz pytania<br>
-                5. Widzisz odpowiedzi z Twoich dokumentów w czasie rzeczywistym</p>
-                
-                <p><strong>To nie jest PowerPoint. To jest chirurgia na żywo.</strong></p>
-                
-                <p><strong>Kontakt:</strong><br>
-                WhatsApp: +49 177 477 80 65<br>
-                Email: kontakt.gregoridea@gmail.com</p>
-            </div>
-            <button class="read-more">Czytaj dalej</button>
-        </div>
-    </section>
-
-
-    <!-- Nasze artykuły -->
-    <section class="articles-section">
-        <h2>Szyfr, którego nie da się złamać & Hasło, które pamięta ciebie.</h2>
-        <div class="article">
-            <div class="hidden-content">
-                <section>
-                    <p>Aplikacja wprowadza mechanizm podwójnego hasła, który totalnie upraszcza szyfrowanie, a przy okazji czyni je niezapomnianym:</p>
-                    <p><b>Krok 1 – Wprowadź treść do zaszyfrowania:</b><br>
-                        Wpisz swoją wiadomość lub wybierz plik z dysku, który chcesz zaszyfrować.</p>
-                    <p><b>Krok 2 – Ustal pierwsze hasło:</b><br>
-                        Wymyśl i wpisz swoje pierwsze hasło, np.: „Nigdy nie byłem w Australii".</p>
-                    <p>Kliknij Szyfruj</p>
-                    <p>W tym miejscu dokonaj wyboru zapisz, podziel sie lub wykonaj krok 3</p>
-                    <p><b>Krok 3 – Dodaj pytanie pomocnicze:</b><br>
-                        Na ekranie pojawi się prośba o wpisanie pytania pomocniczego. Wpisz pytanie, które pomoże Ci przypomnieć pierwsze hasło, np.: „W kim lub w czym prawie zakochałeś się w Australii".</p>
-                    <p><b>Krok 3 – szyfrujesz hasłem 2 </b><br>
-                        proste, „uniwersalne" np.: „nie pamiętam hasła"</p>
-                    <p>Gotowe. Całość jest zaszyfrowana i zabezpieczona w taki sposób, że tylko Ty to rozumiesz. Nikt inny.</p>
-                    <p><b>Odszyfrowywanie:</b><br>
-                        Wpisujesz hasło 2. czyli „nie pamiętam hasła"<br>
-                        Na ekranie pojawia się Twoje pytanie, „W kim lub w czym prawie zakochałeś się w Australii"<br>
-                        To prowadzi Cię do hasła 1. „Nigdy nie byłem w Australii"<br>
-                        Wpisujesz odpowiedź – i dane są odszyfrowane.</p>
-                    <p><b>Efekt:</b><br>
-                        Nie da się zapomnieć hasła, bo to Twoje życie.<br>
-                        Nie da się zgadnąć hasła, bo to Twoja emocja.</p>
-                
-                </a>
-            </div>
-            <button class="read-more">Czytaj dalej</button>
-        </div>
-         <h2>Bezpieczeństwo na poziomie światowym.</h2>
-                <div class="article">
-            <div class="hidden-content">
-           
-             <p>
-                Twoje dane są chronione algorytmem <strong>AES-256</strong> – to ten sam standard szyfrowania, którego używa wojsko, banki, instytucje rządowe i największe firmy technologiczne na świecie.
-            </p>
-            <p>
-                 AES-256 jest uznawany za najbezpieczniejszy algorytm szyfrowania danych. Do tej pory nikomu na świecie nie udało się go złamać. To oznacza, że Twoje sekrety i pliki są chronione dokładnie tak, jak najważniejsze informacje państwowe czy finansowe.
-            </p>
-            <p>
-                 Szyfrowanie i odszyfrowywanie odbywa się błyskawicznie ENCRYPT Time: 0.0202 s | Bytes: 4707136 DECRYPT Time: 0.0161 s | Bytes: 4707111.— nawet przy dużych plikach. Bezpieczeństwo, które czujesz na co dzień, to nie marketing – to technologia, której zaufali najwięksi.
-            </p> 
-                
-                
-            </div>
-            <button class="read-more">Czytaj dalej</button>
-        </div>
-        <div class="article">
-            <h2>Ile kosztuje twoja prywatność ?</h2>
-          
-            <div class="hidden-content">
-  <p>
-    Sekret to jedyne, co naprawdę należy tylko do nas. To fragment naszej tożsamości, który chronimy nie ze strachu, lecz z potrzeby intymności i wolności.
-  </p>
-  <p>
-    Dziś już nie hakerzy, ale tysiące automatycznych botów codziennie przeczesują internet i atakują wszystko, co jest podłączone do sieci. Nie wybierają ofiar – atakują każdego, wszędzie, przez całą dobę.
-  </p>
-  <p>
-    Jeżeli gdziekolwiek masz zapisane swoje hasła – do banku, sklepów internetowych, poczty – możesz być pewien, że to jest wartość, o którą ktoś już walczy. Prywatność to nie luksus, to Twoje bezpieczeństwo i wolność.
-  </p>
-
-            </div>
-            <button class="read-more">Czytaj dalej</button>
-        </div>
-        
-
-
-        <div class="article">
-            <h2>O mnie</h2>
-            <p></p>
-            <div class="hidden-content">
-    <p>
-             Nigdy wcześniej nie zajmowałem się bezpieczeństwem danych ani programowaniem – po prostu od zawsze byłem ciekawy świata i lubiłem szukać rozwiązań. 
-    </p>
-    <p>
-            Dziś spełniam marzenie, które miałem od dziecka – współpracuję z AI, o której czytałem w książkach Lema, Asimova i innych. Czekałem na ten moment ponad 40 lat i wreszcie mogę korzystać z gigantycznego źródła wiedzy, które zawsze mam przy sobie.
-    </p>
-    <p>
-             Nie jestem ekspertem, ale potrafię myśleć krytycznie i nie boję się zadawać pytań. To dzięki temu powstała ta aplikacja – z ciekawości, pasji i współpracy człowieka z AI, która  daje możliwości, o jakich kiedyś tylko marzyłem.
-  </p>
-            </div>
-            <button class="read-more">Czytaj dalej</button>
-        </div>
-    </section>
-
-    <!-- Kontakt -->
-    <section id="contact">
-        <h2>Skontaktuj się ze mną</h2>
-        <form action="contact.php" method="POST">
-            <input type="hidden" name="_captcha" value="false">
-            <input type="hidden" name="_template" value="box">
-            <div class="form-group">
-                <label for="name">Imię lub nick:</label>
-                <input type="text" id="name" name="name" required>
-            </div>
-            <div class="form-group">
-                <label for="email">Adres e-mail:</label>
-                <input type="email" id="email" name="email" required>
-            </div>
-            <div class="form-group">
-                <label for="message">Treść wiadomości:</label>
-                <textarea id="message" name="message" required></textarea>
-            </div>
-            <div class="form-group">
-                <label>
-                    <input type="checkbox" required>
-                    Wyrażam zgodę na przetwarzanie moich danych osobowych w celu kontaktu, zgodnie z Polityką Prywatności.
-                </label>
-            </div>
-            <button type="submit" class="btn btn-primary">Wyślij wiadomość</button>
-        </form>
-    </section>
-</div>
 
 <footer>
-    <div class="footer-container">
-        <div class="footer-info">
-            <h4>GregorIdea</h4>
-        </div>
-        <div class="footer-info">
-            <h4>Kontakt</h4>
-            <p>Adres: Regensburg Germany</p>
-            <p>Tel: WhatsApp +49 177 477 80 65</p>
-            <p>Email: <a href="mailto:kontakt.gregoridea@gmail.com">kontakt.gregoridea@gmail.com</a></p>
-        </div>
-
-        <div class="footer-bottom">
-            <p>&copy; GregorIdea  Wszelkie prawa zastrzeżone </p>
-        </div>
-    </div>
+    © 2026 Gregor Idea · Regensburg, Germany · contact@gregoridea.com
 </footer>
 
-<script>
-document.querySelectorAll('.read-more').forEach(function(button) {
-    button.addEventListener('click', function() {
-        var content = this.previousElementSibling;
-        // Sprawdzamy stan faktyczny, a nie tylko styl wpisany w element
-        if (window.getComputedStyle(content).display === 'none') {
-            content.style.display = 'block';
-            this.textContent = 'Zwiń';
-        } else {
-            content.style.display = 'none';
-            this.textContent = 'Czytaj dalej';
-        }
-    });
-});
-</script>
 </body>
 </html>
